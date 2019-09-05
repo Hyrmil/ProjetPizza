@@ -20,14 +20,14 @@ public class LivraisonController {
 	private LivraisonService livraisonService;
 
 	@GetMapping("/list")
-	public String listcustomer(Model themodel) {
+	public String listLivraison(Model themodel) {
 		themodel.addAttribute("livraison", livraisonService.getLivraison());
 
 		return "list-livraison";
 	}
 
 	@GetMapping("/addlivraison")
-	public String addCustomer(Model themodel) {
+	public String addLivraison(Model themodel) {
 		Livraison livraison = new Livraison();
 		themodel.addAttribute(livraison);
 		return "show-livraison-form";
@@ -46,7 +46,7 @@ public class LivraisonController {
 	}
 
 	@GetMapping("/update")
-	public String updateCustomer(Model themodel, @RequestParam("idLivraison") int theId) {
+	public String updateLivraison(Model themodel, @RequestParam("idLivraison") Integer theId) {
 
 		themodel.addAttribute("livraison", livraisonService.getSingleLivraison(theId));
 
@@ -55,7 +55,7 @@ public class LivraisonController {
 	}
 
 	@GetMapping("/delete")
-	public String deleteCustomer(Model themodel, @RequestParam("idLivraison") int theId) {
+	public String deleteLivraison(Model themodel, @RequestParam("idLivraison") Integer theId) {
 
 		// adding logic here
 		livraisonService.deleteLivraison(theId);
