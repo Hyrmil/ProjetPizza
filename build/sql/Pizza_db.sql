@@ -79,11 +79,13 @@ DROP TABLE IF EXISTS `commande_article`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `commande_article` (
+  `ID_COMMANDE_ARTICLE` int(11) NOT NULL AUTO_INCREMENT,
   `ID_COMMANDE` int(11) NOT NULL,
   `ID_ARTICLE` int(11) NOT NULL,
   `ARTICLE_QUANTITY` int(11) DEFAULT NULL,
   KEY `ID_COMMANDE` (`ID_COMMANDE`),
   KEY `ID_ARTICLE` (`ID_ARTICLE`),
+  PRIMARY KEY (`ID_COMMANDE_ARTICLE`),
   CONSTRAINT `commande_article_ibfk_1` FOREIGN KEY (`ID_COMMANDE`) REFERENCES `commande` (`ID_COMMANDE`),
   CONSTRAINT `commande_article_ibfk_2` FOREIGN KEY (`ID_ARTICLE`) REFERENCES `articles` (`ID_ARTICLE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
