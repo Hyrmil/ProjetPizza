@@ -18,4 +18,10 @@ public class HelloController {
 		return "accueil";
 		
 	}
+	
+	@GetMapping(path={"/commande"})
+	public String viewCommande(Model model) {
+		return "commande";
+		
+	}
 }
