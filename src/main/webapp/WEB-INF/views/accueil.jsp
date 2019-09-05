@@ -23,15 +23,6 @@
 				</div>
 				<ul class="nav navbar-nav">
 					<li class="nav-item"><a class="nav-link">Accueil</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" data-toggle="dropdown">Menu </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item">Formule</a></li>
-							<li><a class="dropdown-item">Entrée</a></li>
-							<li><a class="dropdown-item">Pizza</a></li>
-							<li><a class="dropdown-item">Dessert</a></li>
-							<li><a class="dropdown-item">Boisson</a></li>
-						</ul></li>
 					<li class="nav-item"><a class="nav-link">Commander</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
