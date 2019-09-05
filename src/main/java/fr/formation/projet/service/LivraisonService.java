@@ -17,37 +17,37 @@ public class LivraisonService {
     private LivraisonDao livraisondao;
     
     @Transactional
-    public List<Livraison> getCustomer() {
+    public List<Livraison> getLivraison() {
         
                 // do some business processing here ...
             //now call DAO layer
-        return livraisondao.getCustomer();
+        return livraisondao.getLivraison();
 
   }
     
     
     @Transactional
-    public boolean addCustomer(Livraison customer) {
+    public boolean addLivraison(Livraison livraison) {
         
          // do some business processing  here ...
             //now call DAO layer
-        return(livraisondao.addCustomer(customer));
+        return(livraisondao.addLivraison(livraison));
         
     }
     
     @Transactional
-    public Livraison getSingleCustomer(int theId) {
+    public Livraison getSingleLivraison(Integer theId) {
         
         // do some business processing here ... 
             //now call DAO layer
-        return livraisondao.getSingleCustomer(theId);
+        return livraisondao.getSingleLivraison(theId);
     }
     
     
     @Transactional
-    public void deleteCustomer(int theId) {
+    public void deleteLivraison(Integer theId) {
          // do some business processing here ...
          //now call DAO layer
-    	livraisondao.deleteCustomer(theId);
+    	livraisondao.deleteLivraison(theId);
     }
 }

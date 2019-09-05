@@ -15,15 +15,15 @@ public class LivraisonDao{
     @Autowired
     public SessionFactory sessionfactory;
     
-    public List<Livraison> getCustomer() {
+    public List<Livraison> getLivraison() {
     Session currentsession=sessionfactory.getCurrentSession();
     
-    List<Livraison> livraison=currentsession.createQuery("from Customer",Livraison.class).getResultList();
+    List<Livraison> livraison=currentsession.createQuery("from Livraison" + Livraison.class.getName()).list();
     
     return livraison;
     }
     
-    public Boolean addCustomer(Livraison livraison) {
+    public Boolean addLivraison(Livraison livraison) {
     
         try {
             Session currentsession=sessionfactory.getCurrentSession();
@@ -31,7 +31,6 @@ public class LivraisonDao{
             currentsession.save(livraison);
                 
         } catch (Exception e) {
-            // TODO: handle exception
             return false;
         }
         
@@ -39,16 +38,16 @@ public class LivraisonDao{
     }
 
     
-    public Livraison getSingleCustomer(int theId) {
+    public Livraison getSingleLivraison(Integer theId) {
         Session currentsession=sessionfactory.getCurrentSession();
         
-        return currentsession.get(Livraison.class,theId);
+        return (Livraison) currentsession.get(Livraison.class,theId);
     }
     
     
-    public void deleteCustomer(int theId) {
+    public void deleteLivraison(Integer theId) {
         Session currentsession=sessionfactory.getCurrentSession();
         
-        currentsession.delete(getSingleCustomer(theId));
+        currentsession.delete(getSingleLivraison(theId));
     }
 }

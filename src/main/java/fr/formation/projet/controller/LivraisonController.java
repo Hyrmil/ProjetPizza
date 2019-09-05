@@ -21,52 +21,49 @@ public class LivraisonController {
 
 	@GetMapping("/list")
 	public String listcustomer(Model themodel) {
-		themodel.addAttribute("customers", livraisonService.getCustomer());
+		themodel.addAttribute("livraison", livraisonService.getLivraison());
 
-		return "list-customer";
+		return "list-livraison";
 	}
 
-	@GetMapping("/addcustomer")
+	@GetMapping("/addlivraison")
 	public String addCustomer(Model themodel) {
-		System.out.println("in addCustomer ");
-		Livraison customer = new Livraison();
-		themodel.addAttribute(customer);
-		return "show-customer-form";
+		Livraison livraison = new Livraison();
+		themodel.addAttribute(livraison);
+		return "show-livraison-form";
 	}
 
 	@PostMapping("/processform")
-	public String processForm(Model themodel, @ModelAttribute("customer") Livraison newLivraison) {
+	public String processForm(Model themodel, @ModelAttribute("livraison") Livraison livraison) {
 
 		// adding logic here
-		livraisonService.addCustomer(newLivraison);
+		livraisonService.addLivraison(livraison);
 
 		// display
-		themodel.addAttribute("customers", livraisonService.getCustomer());
+		themodel.addAttribute("livraison", livraisonService.getLivraison());
 
-		System.out.println("in process form");
-		return "list-customer";
+		return "list-livraison";
 	}
 
 	@GetMapping("/update")
-	public String updateCustomer(Model themodel, @RequestParam("customerId") int theId) {
+	public String updateCustomer(Model themodel, @RequestParam("idLivraison") int theId) {
 
-		themodel.addAttribute("customer", livraisonService.getSingleCustomer(theId));
+		themodel.addAttribute("livraison", livraisonService.getSingleLivraison(theId));
 
-		return "show-customer-form";
+		return "show-livraison-form";
 
 	}
 
 	@GetMapping("/delete")
-	public String deleteCustomer(Model themodel, @RequestParam("customerId") int theId) {
+	public String deleteCustomer(Model themodel, @RequestParam("idLivraison") int theId) {
 
 		// adding logic here
-		livraisonService.deleteCustomer(theId);
+		livraisonService.deleteLivraison(theId);
 
 		// display
-		themodel.addAttribute("customers", livraisonService.getCustomer());
+		themodel.addAttribute("livraison", livraisonService.getLivraison());
 
-		System.out.println("in process form");
-		return "list-customer";
+		return "list-livraison";
 
 	}
 
